@@ -1,0 +1,22 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/employee-microservice
+    username: postgres
+    password: 12345
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  application:
+    name: employee-service
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+server:
+  port: 8080
