@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="auth-service" />
         <module name="department-service" />
         <module name="discovery-service" />
         <module name="gateway" />
@@ -15,6 +16,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="api-gateway" target="11" />
+      <module name="auth-service" target="11" />
       <module name="department-service" target="11" />
       <module name="discovery-service" target="11" />
       <module name="employee-service" target="11" />
@@ -24,6 +26,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
+      <module name="auth-service" options="-parameters" />
       <module name="department-service" options="-parameters" />
       <module name="discovery-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
