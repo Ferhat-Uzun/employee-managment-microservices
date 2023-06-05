@@ -1,9 +1,8 @@
 package com.ferhat.gateway.util;
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import java.security.Key;
-import java.util.Date;
+import io.jsonwebtoken.io.Decoders;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -20,24 +19,13 @@ public class Jwt {
     @Value("${jwt.secret}")
     private String secret;
 
-    private Key key;
-
-
-    @PostConstruct
-    public void init(){
-        this.key = Keys.hmacShaKeyFor(secret.getBytes());
+    public void validateToken(final String token) {
+        Jwts.parserBuilder().setSigningKey(getSignKey())
+                .build().parseClaimsJws(token);
     }
-
-    public Claims getAllClaimsFromToken(String token) {
-        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
-    }
-
-    private boolean isTokenExpired(String token) {
-        return this.getAllClaimsFromToken(token).getExpiration().before(new Date());
-    }
-
-    public boolean isInvalid(String token) {
-        return this.isTokenExpired(token);
+    private Key getSignKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(secret);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
 }

@@ -4,6 +4,26 @@ spring:
     name: gateway-service
   cloud:
     gateway:
+      routes:
+        - id: employee-service
+          uri: lb://employee-service
+          predicates:
+            - Path=/employee/**
+          filters:
+            - JwtAuthenticationFilter
+
+        - id: department-service
+          uri: lb://department-service
+          predicates:
+            - Path=/department/**
+          filters:
+            - JwtAuthenticationFilter
+
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+
       discovery:
         locator:
           enabled: true

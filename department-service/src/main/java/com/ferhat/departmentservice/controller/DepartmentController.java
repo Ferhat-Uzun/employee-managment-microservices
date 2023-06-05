@@ -40,8 +40,10 @@ public class DepartmentController {
     }
 
     @GetMapping("{id}/employee")
-    ResponseEntity<EmployeesByDepartmentDto> getAllEmployeesByDepartment(@PathVariable String id){
-        return ResponseEntity.ok(departmentService.getAllEmployeesByDepartment(id));
+    ResponseEntity<EmployeesByDepartmentDto> getAllEmployeesByDepartment(
+            @PathVariable String id){
+        return ResponseEntity.ok(departmentService
+                .getAllEmployeesByDepartment(id));
     }
 
     @DeleteMapping("{id}")

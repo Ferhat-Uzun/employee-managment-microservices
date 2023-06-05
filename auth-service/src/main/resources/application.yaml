@@ -10,6 +10,7 @@ spring:
       ddl-auto: update
   application:
     name: auth-service
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -19,3 +20,7 @@ eureka:
 
 server:
   port: 9898
+
+
+jwt:
+  secret: "262cd7b4a33c371cb6387a3bb437dcb38a37a4435231f8b4160ec721a61c278f"

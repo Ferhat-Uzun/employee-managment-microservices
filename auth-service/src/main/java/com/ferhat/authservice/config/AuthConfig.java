@@ -30,8 +30,11 @@ public class AuthConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
                 .authorizeHttpRequests()
-                .antMatchers("auth/**")
-                .permitAll().and().build();
+                .antMatchers("/auth/register").permitAll()
+                .antMatchers("/auth/login").permitAll()
+                .antMatchers("/auth/validate").permitAll()
+                .and()
+                .build();
     }
 
     @Bean
@@ -48,7 +51,8 @@ public class AuthConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
+            throws Exception {
         return config.getAuthenticationManager();
     }
 }
