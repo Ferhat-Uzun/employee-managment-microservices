@@ -29,6 +29,10 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
             if (route.isSecured.test(exchange.getRequest())) {
+                if (exchange.getRequest().getURI().getPath().contains("/auth/")) {
+                    // "/auth/" ile başlayan isteklerde kimlik doğrulama yapmadan devam et
+                    return chain.filter(exchange);
+                }
                 if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
                     throw new RuntimeException("Missing authorization header");
                 }

@@ -16,8 +16,8 @@ import javax.annotation.PostConstruct;
 @Component
 public class Jwt {
 
-    @Value("${jwt.secret}")
-    private String secret;
+    private String secret = "0e8493e41b79bf587eefc2459d4cc95f60052e50a2c7b5177ac81867d6cf4b827bfabe92";
+
 
     public void validateToken(final String token) {
         Jwts.parserBuilder().setSigningKey(getSignKey())

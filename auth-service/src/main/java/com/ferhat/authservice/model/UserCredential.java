@@ -26,7 +26,7 @@ public class UserCredential {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
-    private String name;
+    private String username;
     private String email;
     private String password;
 }

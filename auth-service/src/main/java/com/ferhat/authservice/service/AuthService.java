@@ -1,5 +1,7 @@
 package com.ferhat.authservice.service;
 
+import com.ferhat.authservice.config.JwtGenerator;
+import com.ferhat.authservice.exception.UserNotFoundException;
 import com.ferhat.authservice.model.UserCredential;
 import com.ferhat.authservice.repository.UserCredentialRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,27 +15,20 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     private UserCredentialRepository userCredentialRepository;
-    private PasswordEncoder passwordEncoder;
-    private JwtService jwtService;
 
-    public AuthService(UserCredentialRepository userCredentialRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
+    public AuthService(UserCredentialRepository userCredentialRepository) {
         this.userCredentialRepository = userCredentialRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.jwtService = jwtService;
     }
 
-
-    public String saveUser(UserCredential credential) {
-        credential.setPassword(passwordEncoder.encode(credential.getPassword()));
-        userCredentialRepository.save(credential);
-        return "User added to system";
+    public void saveUser(UserCredential user) {
+        userCredentialRepository.save(user);
     }
 
-    public String generateToken(String name) {
-        return jwtService.generateToken(name);
-    }
-
-    public void validateToken(String token) {
-        jwtService.validateToken(token);
+    public UserCredential getUserByNameAndPassword(String name, String password) throws UserNotFoundException {
+        UserCredential user = userCredentialRepository.findByUsernameAndPassword(name, password);
+        if(user == null){
+            throw new UserNotFoundException("Invalid id and password");
+        }
+        return user;
     }
 }

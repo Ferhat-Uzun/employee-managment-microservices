@@ -15,8 +15,8 @@ import java.util.function.Predicate;
 public class Route {
 
     public static final List<String> openApiEndpoints = List.of(
-            "/auth/register",
-            "/auth/login",
+            "/auth/register/",
+            "/auth/login/",
             "/eureka"
     );
 

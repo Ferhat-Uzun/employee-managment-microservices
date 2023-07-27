@@ -1,5 +1,5 @@
 package com.ferhat.departmentservice.controller;
-
+//com.lenora.core
 import com.ferhat.departmentservice.dto.DepartmentDto;
 import com.ferhat.departmentservice.dto.EmployeesByDepartmentDto;
 import com.ferhat.departmentservice.model.Department;
@@ -40,8 +40,7 @@ public class DepartmentController {
     }
 
     @GetMapping("{id}/employee")
-    ResponseEntity<EmployeesByDepartmentDto> getAllEmployeesByDepartment(
-            @PathVariable String id){
+    ResponseEntity<EmployeesByDepartmentDto> getAllEmployeesByDepartment(@PathVariable String id){
         return ResponseEntity.ok(departmentService
                 .getAllEmployeesByDepartment(id));
     }
