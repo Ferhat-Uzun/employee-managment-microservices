@@ -7,10 +7,6 @@ import com.ferhat.authservice.repository.UserCredentialRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-/**
- * @author Ferhat on 6/3/2023
- * @project employee-managment-microservices
- */
 @Service
 public class AuthService {
 

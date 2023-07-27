@@ -8,11 +8,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
-/**
- * @author Ferhat on 6/3/2023
- * @project employee-managment-microservices
- */
-
 @Component
 public class Jwt {
 

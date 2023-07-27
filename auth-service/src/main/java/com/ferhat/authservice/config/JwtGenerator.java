@@ -3,19 +3,11 @@ package com.ferhat.authservice.config;
 import com.ferhat.authservice.model.UserCredential;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.security.SecureRandom;
-import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-/**
- * @author Ferhat on 6/19/2023
- * @project employee-managment-microservices
- */
 
 @Service
 public class JwtGenerator {

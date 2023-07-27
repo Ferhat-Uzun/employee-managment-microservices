@@ -6,11 +6,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.function.Predicate;
 
-/**
- * @author Ferhat on 6/3/2023
- * @project employee-managment-microservices
- */
-
 @Component
 public class Route {
 

@@ -8,10 +8,6 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * @author Ferhat on 6/2/2023
- * @project employee-management-microservices
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

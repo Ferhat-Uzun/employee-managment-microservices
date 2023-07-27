@@ -10,10 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- * @author Ferhat on 6/2/2023
- * @project employee-management-microservices
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

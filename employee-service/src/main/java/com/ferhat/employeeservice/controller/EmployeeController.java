@@ -8,11 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author Ferhat on 6/2/2023
- * @project employee-managment-microservices
- */
-
 @RestController
 @RequestMapping("employee")
 public class EmployeeController {

@@ -10,11 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * @author Ferhat on 6/2/2023
- * @project employee-managment-microservices
- */
-
 @Service
 public class EmployeeService {
 
